@@ -5,7 +5,7 @@ class LocalStack
     @process = ProcessHelper::ProcessHelper.new
 
     @process.start(
-      %w[pipenv run env SERVICES=sns,sqs localstack start --host],
+        %w[pipenv run env SERVICES=sns,sqs,s3 LAMBDA_EXECUTOR=local localstack start --host],
       /Ready/,
       60
     )
