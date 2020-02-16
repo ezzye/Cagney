@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eu
+export SERVER_ENV=component-test
+export AWS_ACCESS_KEY_ID=foo
+export AWS_SECRET_ACCESS_KEY=bar
+export AWS_DEFAULT_REGION=eu-west-1
+
+cd "$( dirname "$0" )"
+
+bundle exec cucumber "$@"
+
+bundle exec rubocop Gemfile features
