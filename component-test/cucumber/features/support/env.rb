@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'cucumber'
-require 'rspec/matchers'
+require 'rspec/expectations'
 require 'fileutils'
 require 'rest-assured'
+require 'process-helper'
 
 BASE_DIR = File.expand_path('../../../..', File.dirname(__FILE__))
 CUCUMBER_DIR = File.expand_path('../..', File.dirname(__FILE__))

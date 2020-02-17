@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org' do
   gem 'cucumber', '~> 2.4'
+  gem 'rspec-expectations'
   gem 'aws-sdk-sns'
   gem 'aws-sdk-sqs'
   gem 'nokogiri'
@@ -9,4 +10,5 @@ source 'https://rubygems.org' do
   gem 'rest-client'
   gem 'rubocop'
   gem 'sqlite3'
+  gem 'process-helper'
 end
