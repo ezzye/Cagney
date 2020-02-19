@@ -16,7 +16,6 @@ AfterConfiguration do
   LOCAL_STACK = LocalStack.new
   BAD_MESSAGE_QUEUE = BMQ.new('BadMessageQueue')
   OUTPUT_TOPIC = SNS.new('OutputTopic')
-  ISPY_TOPIC = SNS.new('IspyTopic')
 end
 
 After do |result|

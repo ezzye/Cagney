@@ -14,7 +14,6 @@ class LambdaTrigger
   def self.command
     [
       'pipenv', 'run', 'env',
-      "ISPY_TOPIC_ARN=#{ISPY_TOPIC.arn}",
       "OUTPUT_TOPIC_ARN=#{OUTPUT_TOPIC.arn}",
       "BAD_MESSAGE_QUEUE_URL=#{BAD_MESSAGE_QUEUE.url}",
       'INPUT_QUEUE_ARN=arn:aws:sqs:eu-west-1:000000000000:InputQueue',
