@@ -20,8 +20,6 @@ def sns_unwrapper(sqs_message):
         return sqs_message
 
     # Now sns message info can be extracted and used to modify the sqs message
-    if 'ispy_context' in sqs_message:
-        sqs_message['ispy_context']['message_id_received'] = sns_message['MessageId']
 
     sqs_message['body'] = sns_message['Message']
     return sqs_message
