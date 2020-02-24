@@ -7,7 +7,7 @@ class LocalStack
     @process.start(
         %w[pipenv run env SERVICES=sns,sqs,s3 LAMBDA_EXECUTOR=local localstack start --host],
       /Ready/,
-      60
+        180
     )
   end
 

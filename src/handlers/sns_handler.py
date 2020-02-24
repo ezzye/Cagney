@@ -6,5 +6,5 @@ class SNSHandler:
         self.topic_arn = topic_arn
 
     def send(self, sqs_message):
-        self.sns_client.publish(TargetArn=self.topic_arn, Message=sqs_message['body'])
+        result = self.sns_client.publish(TargetArn=self.topic_arn, Message=sqs_message['body'])
         return sqs_message

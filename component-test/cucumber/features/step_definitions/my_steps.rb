@@ -1,10 +1,9 @@
 When(/^the lambda is triggered with web email message that contains$/) do |table|
   # table is a table.hashes.keys # => [:post_code, :N16 8BR]
-  body = table.rows_hash.symbolize_keys
+  body = table.rows_hash.to_json
   @message_id = SecureRandom.uuid
-  # Make event
-  event = SqsEvent.new.put_record(body.to_json, message_id: @message_id)
-  # Trigger Lambda
+  sns_message = generate_sns_message(body, message_id: @message_id)
+  event = SqsEvent.new.put_record(sns_message.to_json)
   @under_test = LambdaTrigger.new(event)
 end
 

@@ -3,15 +3,13 @@ import logging
 
 import boto3
 from src.environment import env
+from src.handlers.amend_subject import amend_subject
 from src.handlers.sns_handler import SNSHandler
 from src.handlers.bad_message_handler import BadMessageHandler
 from src.stream.stream import Stream
 from src.stream.sqs_message import SqsMessage
 from src.handlers.sns_unwrapper import sns_unwrapper
 from src.handlers.json import Json
-
-
-
 
 LOGGER = logging.getLogger()
 COMPONENT_NAME = 'cagney'
@@ -24,6 +22,7 @@ def handler(event, lambda_context):
             .map(SqsMessage)
             .map(sns_unwrapper)
             .map(Json.parse_body)
+            .map(amend_subject)
             .map(Json.unparse_body)
             .foreach(sns_handler.send))
 
